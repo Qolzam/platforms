@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    "module": "es6",
+    "outDir": "./build",
+    "target": "es5",
+    "sourceMap": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "alwaysStrict": true,
+    "pretty": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "rootDir": ".",
+    "lib": ["es5", "es6", "dom"],
+    "typeRoots": ["node_modules/@types"],
+    "types": [
+      "node"
+    ],
+    "removeComments": true
+  },
+  "include": [
+    "./**/*.ts"
+  ],
+  "exclude": [
+    "./tests/",
+    "./node_modules/",
+    "./dist/"
+  ]
+}

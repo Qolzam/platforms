@@ -1,0 +1,37 @@
+{
+  "name": "telar-platform-vercel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "deepmerge": "^4.2.2",
+    "del": "^6.0.0",
+    "fs-extra": "^9.0.1",
+    "hybrid-crypto-js": "^0.2.4",
+    "js-yaml": "^3.14.1",
+    "tslib": "^1"
+  },
+  "devDependencies": {
+    "@types/chai": "^4",
+    "@types/del": "^4.0.0",
+    "@types/fs-extra": "8.1.0",
+    "@types/js-yaml": "^3.12.5",
+    "@types/mocha": "^5",
+    "@types/node": "^10",
+    "chai": "^4",
+    "eslint": "^5.13",
+    "eslint-config-oclif": "^3.1",
+    "eslint-config-oclif-typescript": "^0.1",
+    "globby": "^10",
+    "mocha": "^8.2.1",
+    "nyc": "^14",
+    "ts-node": "^8",
+    "typescript": "^3.3"
+  },
+  "keywords": [],
+  "author": "Amir Movahedi <amir.gholzam@live.com>",
+  "license": "ISC"
+}

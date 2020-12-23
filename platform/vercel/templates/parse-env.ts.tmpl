@@ -1,0 +1,21 @@
+/**
+ * Get vercel ENVs and merge in environments
+ * @param {*} environments app environment variables
+ * @returns {*} parsed environments
+ *
+ * Genrated by telar-cli
+ */
+export const parseEnv =  (environments: Record<string, string>) => {
+  let newEnvironments = {}
+  const envNames = Object.keys(environments)
+  envNames.forEach(name => {
+    const envValue = environments[name]
+    // eslint-disable-next-line no-template-curly-in-string
+    if (envValue === '${env}') {
+      newEnvironments = {...newEnvironments, [name]: process.env[name]}
+    } else {
+      newEnvironments = {...newEnvironments, [name]: envValue}
+    }
+  })
+  return newEnvironments
+}
