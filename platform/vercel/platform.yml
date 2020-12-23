@@ -1,0 +1,5 @@
+name: vercel
+welcome_message: |
+  You have created a new platform which uses vercel and the Telar Core.
+
+  use "npm install" or "yarn install" command to install
