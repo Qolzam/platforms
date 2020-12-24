@@ -4,6 +4,7 @@
 // https://opensource.org/licenses/MIT
 
 // import * as path from 'path'
+import * as path from 'path'
 import * as fs from 'fs-extra'
 import {loadStack} from './common/load-stack'
 const merge = require('deepmerge')
@@ -23,6 +24,8 @@ export const sync = async (stackPath = 'stack.yml') => {
   const sourcePkgPath = './package.json'
   const destPkgPath = './vercel/package.json'
   const destTsConfigPath = './vercel/tsconfig.json'
+  const platformPath = './platform/vercel'
+  const platformTemplatePath =`${platformPath}/templates`
 
   // Copy core directory
   await del([destCorePath])
@@ -49,5 +52,5 @@ export const sync = async (stackPath = 'stack.yml') => {
   })
 
   // Copy environment parser
-  // fs.copy(path.resolve(__dirname, 'template/core'), destCorePath)
+  fs.copyFile(`${platformTemplatePath}/parse-env.ts.tmpl`, `${destCorePath}/parse-env.ts`)
 }
