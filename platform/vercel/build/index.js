@@ -19504,7 +19504,7 @@ var del = __webpack_require__(4652);
 var sync = function (stackPath) {
     if (stackPath === void 0) { stackPath = 'stack.yml'; }
     return __awaiter(void 0, void 0, void 0, function () {
-        var functions, configDir, destCorePath, sourceCorePath, sourcePkgPath, destPkgPath, destTsConfigPath, sourcePkg, destPkg, tsConfig;
+        var functions, configDir, destCorePath, sourceCorePath, sourcePkgPath, destPkgPath, destTsConfigPath, platformPath, platformTemplatePath, sourcePkg, destPkg, tsConfig;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -19515,6 +19515,8 @@ var sync = function (stackPath) {
                     sourcePkgPath = './package.json';
                     destPkgPath = './vercel/package.json';
                     destTsConfigPath = './vercel/tsconfig.json';
+                    platformPath = './platform/vercel';
+                    platformTemplatePath = platformPath + "/templates";
                     return [4, del([destCorePath])];
                 case 1:
                     _a.sent();
@@ -19537,12 +19539,17 @@ var sync = function (stackPath) {
                     tsConfig = _a.sent();
                     tsConfig.compilerOptions.experimentalDecorators = true;
                     tsConfig.compilerOptions.emitDecoratorMetadata = true;
-                    lib.writeJSON(destTsConfigPath, tsConfig, { encoding: 'utf8', spaces: 4 });
+                    return [4, lib.writeJSON(destTsConfigPath, tsConfig, { encoding: 'utf8', spaces: 4 })];
+                case 7:
+                    _a.sent();
                     Object.keys(functions).forEach(function (fnName) {
                         var fn = functions[fnName];
                         lib.ensureDirSync(configDir);
                         lib.writeFileSync(configDir + "/" + fnName + ".conf.json", JSON.stringify(fn, null, 4), 'utf8');
                     });
+                    return [4, lib.copyFile(platformTemplatePath + "/parse-env.ts.tmpl", destCorePath + "/parse-env.ts")];
+                case 8:
+                    _a.sent();
                     return [2];
             }
         });

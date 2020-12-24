@@ -42,7 +42,7 @@ export const sync = async (stackPath = 'stack.yml') => {
   const tsConfig = await fs.readJSON(destTsConfigPath, {encoding: 'utf8'})
   tsConfig.compilerOptions.experimentalDecorators = true
   tsConfig.compilerOptions.emitDecoratorMetadata = true
-  fs.writeJSON(destTsConfigPath, tsConfig, {encoding: 'utf8', spaces: 4})
+  await fs.writeJSON(destTsConfigPath, tsConfig, {encoding: 'utf8', spaces: 4})
 
   // Write functions configuration
   Object.keys(functions).forEach(fnName => {
@@ -52,5 +52,5 @@ export const sync = async (stackPath = 'stack.yml') => {
   })
 
   // Copy environment parser
-  fs.copyFile(`${platformTemplatePath}/parse-env.ts.tmpl`, `${destCorePath}/parse-env.ts`)
+  await fs.copyFile(`${platformTemplatePath}/parse-env.ts.tmpl`, `${destCorePath}/parse-env.ts`)
 }
